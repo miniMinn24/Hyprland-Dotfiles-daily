@@ -1,0 +1,217 @@
+:root {
+  --border-radius: 14px;
+  --cc-bg: transparent;
+
+  --widget-background: rgba(1, 5, 8, 0.8);
+  --widget-background-content: rgba(19, 25, 31, 0.8);
+  --widget-background-transparent: rgba(1, 5, 8, 0.6);
+  --widget-background-soft: rgba(145, 152, 161, 0.6);
+  --widget-background-alt: rgba(33, 40, 48, 0.8);
+  --button-foreground: rgba(21, 27, 35, 1);
+  --widget-hover: rgba(21, 27, 35, 0.8);
+  --text-foreground: rgb(145, 152, 161);
+  --text-hover: rgb(233, 246, 252);
+  --noti-bg-alpha: 0.6;
+
+  --padding: calc(var(--border-radius) / 2);
+}
+
+* {
+  all: unset;
+}
+
+.blank-window {
+  background: transparent;
+}
+
+
+.close-button:hover {
+  background: var(--widget-hover);
+}
+
+.notification-content:hover {
+  background: transparent;
+}
+.summary {
+  background: transparent;
+  font-weight: bold;
+}
+.summary:hover {
+  background: transparent;
+}
+.notification-action {
+  color: var(--text-foreground);
+  padding: 8px 4px 8px 4px;
+  margin: 8px 0px 8px 0px;
+  border-radius: 8px;
+}
+.notification-action:hover {
+  background: transparent;
+  color: var(--text-hover);
+  transition: 200ms;
+}
+.body {
+  background: transparent;
+}
+.notification-background {
+  background: transparent;
+}
+.image {
+  margin: 10px 20px 10px 0px;
+}
+
+.close-button {
+  background: var(--button-foreground);
+  margin: 20px;
+}
+
+.control-center {
+  border-radius: 0;
+  padding: 10px;
+  border-radius: var(--border-radius);
+  background: var(--widget-background-transparent);
+  transition: 200ms;
+}
+
+.notification {
+  background: var(--widget-background-content);
+  padding: 10px 20px 10px 20px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.widget-notifications {
+  margin: 4px 10px 4px 10px;
+}
+
+.control-center-dnd slider {
+  background: var(--button-foreground-soft);
+  border-radius: 16px;
+}
+
+.widget-dnd > switch {
+  border-radius: 16px;
+  background: var(--widget-background-soft);
+  border: none;
+}
+
+.widget-dnd > switch:checked {
+  background: #0099ff;
+}
+
+.widget-dnd > switch:checked slider {
+  background: var(--widget-background-alt);
+}
+
+.widget-dnd > switch slider {
+  background: var(--widget-background-alt);
+  border-radius: 16px;
+  margin: 2px;
+}
+
+.widgets > .widget,
+.widget-mpris > carouselindicatordots,
+.widget-mpris > box > button {
+  background: transparent;
+  border-radius: var(--border-radius);
+  padding: calc(var(--border-radius) / 2);
+  border: none;
+}
+
+.control-center-list-placeholder {
+  padding: var(--border-radius);
+  background: transparent;
+}
+
+.notification-group {
+  border-radius: var(--border-radius);
+  padding: 0px;
+  margin: 0px;
+  background: transparent;
+}
+
+.notification-row {
+  padding: 0px;
+  margin: 0px;
+}
+
+.widget.widget-mpris {
+  background: transparent;
+  border-radius: 0;
+  padding: 10px 0px 10px 0px;
+  border: none;
+}
+.widget.widget-mpris > carouselindicatordots {
+  --dots-padding: 4px;
+  padding: var(--dots-padding);
+  padding-left: var(--dots-padding);
+  padding-right: calc(6px + var(--dots-padding));
+  margin: 0;
+  margin-top: var(--padding);
+}
+.widget-mpris > box > button:hover {
+  background: var(--widget-background-soft);
+}
+.widget-mpris-player {
+  box-shadow: none;
+  border: var(--border);
+  margin: 20 var(--padding);
+}
+.widget-mpris-player:only-child {
+  margin: 0;
+}
+
+.widget.widget-dnd {
+  padding: 16px;
+  margin: 4px 10px 4px 10px;
+}
+
+.notification-group {
+  margin: 6px;
+
+}
+.notification-group-headers {
+  font-weight: bold;
+  font-size: 14px;
+  color: var(--text-foreground);
+  letter-spacing: 0px;
+  margin-left: 5px;
+}
+
+.notification-group-icon {
+  color: var(--text-foreground);
+}
+
+.notification-group-collapse-button,
+.notification-group-close-all-button {
+  background: transparent;
+  color: var(-text-foreground);
+  margin: 4px; 
+  border-radius: 6px;
+  padding: 4px;
+}
+
+.notification-group-collapse-button:hover,
+.notification-group-close-all-button:hover {
+  background: var(--widget-hover);
+}  
+
+.widget-mpris button:hover {
+  color: var(--text-foreground);
+}
+
+.widget-mpris-album-art {
+  border-radius: 16px;
+}
+ 
+.widget-mpris-title {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+ 
+.widget-mpris-subtitle {
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+

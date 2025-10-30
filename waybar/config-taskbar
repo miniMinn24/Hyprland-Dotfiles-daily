@@ -1,0 +1,115 @@
+{
+  "layer": "top",
+  "position": "bottom",
+    "modules-left": ["memory", "disk", "temperature", "cpu"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["network"],
+
+  "hyprland/window": {
+    "format": "<b>{initialClass}</b>",
+    "max-length": 16,
+    "separate-outputs": true,
+    "tooltip": true
+    },
+
+  "hyprland/language": {
+    "format": "{}",
+    "format-en": "en",
+    "format-my": "mm",
+    "on-click": "~/.config/hypr/scripts/keyboard.sh",
+    "tooltip": false,
+    },
+
+  "custom/logo": {
+    "format": "󰣇",
+    "tooltip": true,
+    "tooltip-format": "Power Options",
+    "on-click": "~/.config/hypr/scripts/launch_apps/launch_wlogout.sh"
+  },
+
+  "custom/search": {
+    "format": "Apps",
+    "tooltip": true,
+    "tooltip-format": "Launch Apps",
+    "on-click": "nwg-drawer"
+  },
+
+  "custom/display": {
+    "format": "Monitors",
+    "tooltip": true,
+    "tooltip-format": "Configure Monitors",
+    "on-click": "~/.config/hypr/scripts/launch_apps/launch_nwg_displays.sh"
+  },
+
+  "custom/theme": {
+    "format": "GTK",
+    "tooltip": true,
+    "tooltip-format": "Customize Looks",
+    //"on-click": "~/.config/hypr/scripts/launch_apps/launch_theme_changer.sh",
+    "on-click": "~/.config/hypr/scripts/launch_apps/launch_waypaper.sh"
+  },
+  
+  "custom/mic": {
+    "exec": "~/.config/hypr/scripts/mic.sh status",
+    "on-click": "~/.config/hypr/scripts/mic.sh toggle",
+    "format": "<span font_size='large'></span>",
+    "format-alt": "<span color='#589df6'><span font_size='large'></span></span>",
+    "tooltip": true,
+    "tooltip-format": "Internal Mic Status"
+  },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "tooltip": false,
+    "all-outputs": true,
+    "sort-by-number": true,
+    "disable-scroll": false,
+    "on-scroll-up": "hyprctl dispatch workspace +1",
+    "on-scroll-down": "hyprctl dispatch workspace -1",
+    "active-only": false
+  },
+
+  "cpu": {
+	"interval": 1,
+	"format": "{icon0}{icon1}{icon2}{icon3}",
+	"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "<span color='#589df6'>▇</span>", "<span color='orange'>█</span>"],
+  },
+
+  "memory": {
+    "format": "{used:0.1f}G",
+    "tooltip": true,
+    "tooltip-format": "RAM: Used {used:0.1f}G / Free {total:0.1f}G",
+    "interval": 2,
+  },
+
+  "disk": {
+    "interval": 30,
+    "unit": "GB",
+    "format": "{specific_used:0.2f}G",
+    "path": "/",
+    "tooltip": true,
+    "tooltip-format": "Root: Used {specific_used:0.2f}G / free {specific_free:0.2f}G",
+  },
+
+  "temperature": {
+    // "thermal-zone": 2,
+    // "hwmon-path": ["/sys/class/hwmon/hwmon2/temp1_input", "/sys/class/thermal/thermal_zone0/temp"],
+    "critical-threshold": 80,
+    "format-critical": "<span color='orange'>{temperatureC}~C</span>",
+    "format": "<span color='#589df6'>{temperatureC}~C</span>",
+    "tooltip": true,
+    "tooltip-format": "Temperature: {temperatureC}°C",
+  },
+
+  "network": {
+    "format": "{}",
+    "format-wifi": "<span color='#589df6'>{frequency}</span> ⇵ {bandwidthDownBits} {bandwidthUpBits}",
+    "format-default": "<span color='gray'> ⇵</span> Disconnected",
+    "format-disconnected": "<span color='gray'> ⇵</span> Disconnected",
+    "format-ethernet": "<span color='#589df6'>{frequency}</span> 󰚇 {bandwidthDownBits} {bandwidthUpBits}",
+    "interface": "wlan0",
+    "tooltip": true,
+    "tooltip-format": "{essid} <span color='#589df6'>{ipaddr}</span><span color='gray'>/{cidr}</span>",
+    "interval": 3
+  },
+}

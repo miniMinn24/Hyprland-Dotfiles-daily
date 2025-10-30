@@ -1,0 +1,150 @@
+/*
+██╗    ██╗ █████╗ ██╗   ██╗██████╗  █████╗ ██████╗ 
+██║    ██║██╔══██╗╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+██║ █╗ ██║███████║ ╚████╔╝ ██████╔╝███████║██████╔╝
+██║███╗██║██╔══██║  ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+╚███╔███╔╝██║  ██║   ██║   ██████╔╝██║  ██║██║  ██║
+ ╚══╝╚══╝ ╚═╝  ╚═╝   ╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+                          A style for simple waybar
+*/
+
+@import "themes/main.css";
+
+* {
+  font-family: Ubuntu, "JetBrainsMono Nerd Font Propo";
+  font-size: 12px;
+  font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+}
+
+window#waybar {
+  background-color: @bg;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+}
+
+#custom-pacman {
+  background-color: transparent;
+  padding: 0px 5px 0px 5px;
+  margin: 0px 2px 0px 2px;
+  font-size: 9px;
+}
+
+#custom-pacman.updated {
+  color: @good;
+}
+
+#window {
+  background-color: transparent;
+  color: @fg_soft;
+  margin: 0px 2px 0px 2px;
+}
+
+tooltip * {
+  background-color: @tooltip_bg;
+  padding: 2px 3px 2px 3px;
+  border-radius: 6px;
+  color: @fg;
+}
+
+#taskbar {
+  background-color: @bg_alt;
+  color: @fg;
+  margin: 0px 0px 0px 2px;
+  padding: 0px 5px 0px 5px; 
+}
+
+#taskbar button {
+	min-width: 80px;
+  border-radius: 0px;
+  border-bottom: 1px solid transparent;
+	margin: 0px 0px 0px 0px;
+  padding: 0px 5px 0px 5px;
+  color: @fg_soft;
+}
+
+#taskbar button.active {
+  border-bottom: 1px solid @active;
+  color: @fg;
+  background-color: @bg_soft;
+}
+
+#custom-logo {
+  background-color: @bg_alt;
+  font-family: "JetBrainsMono Nerd Font Propo";
+  font-size: 14px;
+  color: @fg;
+  border-bottom: 1px solid transparent;  
+  padding: 0px 10px 0px 10px;
+  margin: 0px 2px 0px 6px;
+}
+
+#custom-icon {
+  background-color: @bg-alt;
+  font-family: "JetBrainsMono Nerd Font Propo";
+  font-size: 14px;
+  font-weight: bold;
+  color: @fg;
+  padding: 0px 6px 0px 6px;
+  margin: 0px 0px 0px 0px;
+}
+
+#custom-logo:hover {
+  border-bottom: 1px solid transparent;
+}
+
+#cpu {
+  background-color: @bg_soft;
+  color: @fg_soft;
+  padding: 0px 2px 0px 2px;
+  margin: 0px 4px 0px 4px;
+  border-bottom: 1px solid @fg_soft;
+}
+
+#memory {
+  background-color: transparent;
+  color: @fg;
+  padding: 0px 2px 0px 2px;
+  margin: 0px 2px -1px 2px;
+}
+
+#disk {
+  background-color: transparent;
+  color: @fg;
+  padding: 0px 2px 0px 2px;
+  margin: 0px 12px -1px 2px;
+}
+
+#temperature {
+  background-color: transparent;
+  color: @fg;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 2px -1px 2px;
+}
+
+#network {
+  background-color: transparent;
+  color: @fg_soft;
+  padding: 0px 4px 0px 4px;
+  margin: 0px 2px 0px 2px;
+}
+
+#network.wifi {
+  color: @fg_soft;
+}
+
+#network.disconnected {
+  color: @fg_soft;
+}
+
+#network.disabled {
+  color: @fg_soft;
+}
+
+#custom-logo:hover,
+#custom-icon:hover,
+#network:hover,
+#taskbar button:hover {
+  background: @hover;
+}

@@ -1,0 +1,173 @@
+/*
+██╗    ██╗ █████╗ ██╗   ██╗██████╗  █████╗ ██████╗ 
+██║    ██║██╔══██╗╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+██║ █╗ ██║███████║ ╚████╔╝ ██████╔╝███████║██████╔╝
+██║███╗██║██╔══██║  ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+╚███╔███╔╝██║  ██║   ██║   ██████╔╝██║  ██║██║  ██║
+ ╚══╝╚══╝ ╚═╝  ╚═╝   ╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+                          A style for simple waybar
+*/
+
+@import "themes/main.css";
+
+* {
+  font-family: Ubuntu, "JetBrainsMono Nerd Font Propo";
+  font-size: 12px;
+  font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+}
+
+window#waybar {
+  background-color: @bg;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+}
+
+#window {
+  background-color: transparent;
+  color: @fg_soft;
+  margin: 0px 2px 0px 10px;
+}
+
+tooltip * {
+  background-color: @tooltip_bg;
+  padding: 2px 3px 2px 3px;
+  border-radius: 6px;
+  color: @fg;
+}
+
+#workspaces button {
+  background: transparent;
+  border-radius: 0px;
+  color: @workspace_inactive;
+  padding: 0px 5px 0px 5px;
+  margin: 0px;
+  border-top: 1px solid transparent;
+}
+
+#workspaces button.active {
+  background: @bg_soft;
+  border-radius: 0px;
+  color: @fg;
+  font-weight: bold;
+  padding: 0px 5px 0px 5px;
+  margin: 0px;
+  border-top: 1px solid @active;
+}
+
+#workspaces button.focused {
+  background-color: @workspace_active;
+}
+
+#workspaces button.urgent {
+  color: @urgent;
+}
+
+#custom-logo {
+  background-color: @bg_alt;
+  font-family: "JetBrainsMono Nerd Font Propo";
+  font-size: 12px;
+  color: @fg;
+  padding: 0px 10px 0px 10px;
+  margin: 0px 0px 0px 6px;
+}
+
+#battery {
+  background-color: @bg_alt;
+  color: @fg;
+  padding: 0px 0px 0px 5px;
+  margin: 0px 2px 0px 2px;
+}
+
+#battery.charging {
+  background-color: @bg_alt;
+  color: @fg;
+  padding: 0px 10px 0px 5px;
+}
+
+#battery.plugged {
+  background-color: @bg_alt;
+  color: @fg;
+  padding: 0px 10px 0px 5px;
+}
+
+#language {
+  background-color: transparent;
+  color: @fg;
+  padding: 0px 5px 0px 5px;
+  margin: 0px 6px 0px 0px;
+}
+
+#mpris {
+  padding: 0px 5px 0px 5px;
+  margin: 0px 2px 0px 6px;
+  color: @fg;
+}
+
+#pulseaudio {
+  background-color: @bg_alt;
+  color: @fg;
+  padding: 0px 5px 0px 5px;
+  margin: 0px 2px 0px 2px;
+}
+
+#pulseaudio-slider {
+  background: @bg_alt;
+  padding: 0px 6px;
+  margin: 0px 2px;
+}
+
+#pulseaudio-slider slider {
+  min-height: 0px;
+  min-width: 0px;
+  opacity: 0;
+  background-image: none;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+#pulseaudio-slider trough {
+    min-height: 8px;
+    min-width: 50px;
+    border-radius: 5px;
+    background-color: @bg_soft;
+}
+
+#pulseaudio-slider highlight {
+    min-width: 10px;
+    border-radius: 5px;
+    background-color: @fg;
+}
+
+#clock {
+  background-color: transparent;
+  color: @fg;
+  padding: 0px 10px 0px 10px;
+  margin: 0px 6px 0px 6px;
+}
+
+#tray {
+  background-color: @bg_alt;
+  color: @fg;
+  padding: 0px 5px 0px 5px;
+  margin: 0px 2px 0px 2px;
+}
+
+#workspaces button:hover {
+  background: @workspace_hover;
+}
+
+#custom-logo:hover,
+#clock:hover,
+#custom-expand:hover,
+#language:hover {
+  background: @hover;
+}
+
+#backlight:hover,
+#mpris:hover,
+#pulseaudio:hover {
+  color: @fg_soft;
+}

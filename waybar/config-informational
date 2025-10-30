@@ -1,0 +1,193 @@
+{
+  "layer": "top",
+  "position": "top",
+    "modules-left": ["custom/logo", "custom/search", "custom/display", "custom/theme", "custom/lock", "custom/password_manager", "memory", "disk", "temperature", "cpu"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["network", "tray", "hyprland/language", "backlight", "pulseaudio", "pulseaudio#2", "battery", "clock"], //"custom/control"],
+
+  "hyprland/window": {
+    "format": "<b>{initialClass}</b>",
+    "max-length": 16,
+    "separate-outputs": true,
+    "tooltip": true
+    },
+
+  "hyprland/language": {
+    "format": "{}",
+    "format-en": "en",
+    "format-my": "mm",
+    "on-click": "~/.config/hypr/scripts/keyboard.sh",
+    "tooltip": false,
+    },
+
+  "custom/logo": {
+    "format": "󰣇",
+    "tooltip": true,
+    "tooltip-format": "Power Options",
+    "on-click": "~/.config/hypr/scripts/launch_apps/launch_wlogout.sh"
+  },
+
+  "custom/search": {
+    "format": "Apps",
+    "tooltip": true,
+    "tooltip-format": "Launch Apps",
+    "on-click": "nwg-drawer"
+  },
+
+  "custom/display": {
+    "format": "Monitors",
+    "tooltip": true,
+    "tooltip-format": "Configure Monitors",
+    "on-click": "~/.config/hypr/scripts/launch_apps/launch_nwg_displays.sh"
+  },
+
+  "custom/theme": {
+    "format": "GTK",
+    "tooltip": true,
+    "tooltip-format": "Customize Looks",
+    //"on-click": "~/.config/hypr/scripts/launch_apps/launch_theme_changer.sh",
+    "on-click": "~/.config/hypr/scripts/launch_apps/launch_waypaper.sh"
+  },
+
+  "custom/lock": {
+    "format": "<span font_size='large'>󰨒</span>",
+    "tooltip": true,
+    "tooltip-format": "Lock Screen",
+    "on-click": "~/.config/hypr/scripts/wlogoutsh/lock.sh"
+  },
+
+  "custom/password_manager": {
+    "format": "<span font_size='large'></span>",
+    "tooltip": true,
+    "tooltip-format": "Password Manager",
+    "on-click": "bitwarden-desktop",
+  },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "tooltip": false,
+    "all-outputs": true,
+    "sort-by-number": true,
+    "disable-scroll": false,
+    "on-scroll-up": "hyprctl dispatch workspace +1",
+    "on-scroll-down": "hyprctl dispatch workspace -1",
+    "active-only": false
+  },
+
+  "cpu": {
+	"interval": 1,
+	"format": "{icon0}{icon1}{icon2}{icon3}",
+	"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "<span color='#589df6'>▇</span>", "<span color='orange'>█</span>"],
+  },
+
+  "memory": {
+    "format": "{used:0.1f}G",
+    "tooltip": true,
+    "tooltip-format": "RAM: Used {used:0.1f}G / Free {total:0.1f}G",
+    "interval": 2,
+  },
+
+  "disk": {
+    "interval": 30,
+    "unit": "GB",
+    "format": "{specific_used:0.2f}G",
+    "path": "/",
+    "tooltip": true,
+    "tooltip-format": "Root: Used {specific_used:0.2f}G / free {specific_total:0.2f}G",
+  },
+
+  "temperature": {
+    // "thermal-zone": 2,
+    // "hwmon-path": ["/sys/class/hwmon/hwmon2/temp1_input", "/sys/class/thermal/thermal_zone0/temp"],
+    "critical-threshold": 80,
+    "format-critical": "<span color='orange'>{temperatureC}~C</span>",
+    "format": "<span color='#589df6'>{temperatureC}~C</span>",
+    "tooltip": true,
+    "tooltip-format": "Temperature: {temperatureC}°C",
+  },
+
+  "clock": {
+    "tooltip": true,
+    "tooltip-format": "Notification Center",
+    "format": "{:%a %b %d  %I:%M %p}",
+    //"on-click-right": "swaync-client -t -sw",
+    "on-click": "swaync-client -t -w",
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    //"on-click": "eww -c ~/.config/eww open --toggle date",
+    "escape": true
+  },
+
+  "tray": {
+    "format": "{icon}",
+    "tooltip": true,
+    "icon-size": 16,
+    "spacing": 6
+  },
+
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "<span font_size='large'>{icon}</span>",
+    "format-icons": ["󰖨"],
+    "scroll-step": 5,
+    "tooltip": true,
+    "tooltip-format": "Brightness: {percent}%",
+    "on-click": "~/.config/hypr/scripts/nighteye.sh"
+  },
+
+  "pulseaudio": {
+    "format": "<span font_size='large'>{icon}</span>",
+    "format-muted": "<span font_size='large'><span color='gray'>{icon}</span></span>",
+    "tooltip": true,
+    "tooltip-format": "Volume: {volume}%",
+    "format-icons": {
+    "headphone": "󰋋",
+    "default": ["󰏝", "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥"],
+    },
+    "scroll-step": 5,
+    "on-click": "~/.config/hypr/scripts/mute.sh"
+  },
+
+  "pulseaudio#2": {
+    "format": "{format_source}",
+    "format-source-muted": "<span font_size='large'></span>",
+    "format-source": "<span color='#589df6'><span font_size='large'></span></span>",
+    "on-click": "~/.config/hypr/scripts/mic.sh toggle",
+    "tooltip": true,
+    "tooltip-format": "Internal Mic Status"
+  },
+
+  "network": {
+    "format": "{}",
+    "format-wifi": "<span color='#589df6'>{frequency}</span> ⇵ {bandwidthDownBits} {bandwidthUpBits}",
+    "format-default": "<span color='gray'> ⇵</span> Disconnected",
+    "format-disconnected": "<span color='gray'> ⇵</span> Disconnected",
+    "format-ethernet": "<span color='#589df6'>{frequency}</span> 󰚇 {bandwidthDownBits} {bandwidthUpBits}",
+    "interface": "wlan0",
+    "tooltip": true,
+    "tooltip-format": "{essid} <span color='#589df6'>{ipaddr}</span><span color='gray'>/{cidr}</span>",
+    "interval": 3
+  },
+
+  "battery": {
+    "format": "{capacity}% <span font_size='large'>{icon}</span>",
+    "format-icons": {
+      "default": ["<span color='red'>󰁺</span>", "<span color='orange'>󰁻</span>", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+      "charging": ["<span color='#589df6'>󰂆</span>", "<span color='#589df6'>󰂇</span>", "<span color='#589df6'>󰂈</span>", "<span color='#589df6'>󰂉</span>", "<span color='#589df6'>󰂊</span>", "<span color=#589df6'>󰂋</span>"],
+      "plugged": ["<span color='#589df6'>󰂆</span>", "<span color='#589df6'>󰂇</span>", "󰂈", "󰂉", "󰂊", "󰂋"]
+    },
+    "format-full": "<span font_size='large'><span color='#589df6'>󰂄</span></span>",
+    "tooltip": true,
+    "tooltip-format": "Battery: {capacity}%\n{time}",
+    "interval": 10
+  },
+
+  "custom/control": {
+    "format": "<span font_size='large'>󰙀</span>",
+    "tooltip": true,
+    "tooltip-format": "Control Widgets",
+    //"on-click": "eww -c ~/.config/eww open --toggle actions",
+    //"on-click-right": "eww -c ~/.config/eww open --toggle dashboard"
+  }
+}

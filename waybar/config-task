@@ -1,0 +1,176 @@
+//
+// ██╗    ██╗ █████╗ ██╗   ██╗██████╗  █████╗ ██████╗ 
+// ██║    ██║██╔══██╗╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+// ██║ █╗ ██║███████║ ╚████╔╝ ██████╔╝███████║██████╔╝
+// ██║███╗██║██╔══██║  ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+// ╚███╔███╔╝██║  ██║   ██║   ██████╔╝██║  ██║██║  ██║
+//  ╚══╝╚══╝ ╚═╝  ╚═╝   ╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+//                          A config for simple waybar
+
+{
+  "layer": "bottom",
+  "position": "bottom",
+  "modules-left": ["custom/logo", "wlr/taskbar"],
+  "modules-center": [],
+  "modules-right": ["group/hardware"],
+  "reload_style_on_change": true,
+  "mod": "dock",
+  "passthrough": false,
+  "exclusive": true,
+  "gtk-layer-shell": true,
+
+    "wlr/taskbar": {
+      "format": "{icon}  {name:.10}",
+      "icon-size": 18,
+      "spacing": 0,
+      "on-click-right": "close",
+      "tooltip-format": "{title}",
+      "ignore-list": [],
+      "on-click": "activate",
+      "sort-by-app-id": false,
+      "active-first": false,
+      "rewrite": {
+        "  kitty": "  Terminal",
+      }
+    },
+
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "tooltip": false,
+      "all-outputs": true,
+      "sort-by-number": true,
+      "disable-scroll": false,
+      "on-scroll-up": "hyprctl dispatch workspace +1",
+      "on-scroll-down": "hyprctl dispatch workspace -1",
+      "active-only": false
+    },
+
+    "custom/logo": {
+      "format": "󰐥",
+      "tooltip": true,
+      "tooltip-format": "Power Options",
+      "menu": "on-click",
+      "menu-file": "~/.config/waybar/menu.xml",
+      "menu-actions": {
+        "shutdown": "systemctl poweroff",
+        "logout": "hyprctl dispatch exit",
+        "lock": "~/.config/hypr/scripts/wlogoutsh/lock.sh",
+			  "reboot": "reboot",
+			  "suspend": "systemctl suspend",
+			  "hibernate": "systemctl hibernate",
+      },
+    },
+
+    "custom/pacman": {
+      "format": "<span font_size='large'>{icon}</span>",
+      "return-type": "json",
+      "format-icons": {
+        "has-updates": "<span foreground='#05c2fc'><sup></sup></span>",
+        "updated": "",
+      },
+      "exec-if": "which waybar-module-pacman-updates",
+      "exec": "waybar-module-pacman-updates --no-zero-output",
+    },
+
+    "cpu": {
+	    "interval": 1,
+	    "format": "{icon0}{icon1}{icon2}{icon3}",
+	    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "<span color='#589df6'>▇</span>", "<span color='orange'>█</span>"],
+    },
+
+    "memory": {
+      "format": "{used:0.1f}G",
+      "tooltip": true,
+      "tooltip-format": "RAM: Used {used:0.1f}G / Free {total:0.1f}G",
+      "interval": 2,
+    },
+
+    "disk": {
+      "interval": 30,
+      "unit": "GB",
+      "format": "{specific_used:0.2f}G",
+      "path": "/",
+      "tooltip": true,
+      "tooltip-format": "Used {specific_used:0.2f}G / Total {specific_total:0.2f}G",
+    },
+
+    "temperature": {
+      // "thermal-zone": 2,
+      // "hwmon-path": ["/sys/class/hwmon/hwmon2/temp1_input", "/sys/class/thermal/thermal_zone0/temp"],
+      "critical-threshold": 80,
+      "format-critical": "<span color='orange'>{temperatureC}°C</span>",
+      "format": "<span color='#589df6'>{temperatureC}°C</span>",
+      "tooltip": true,
+      "tooltip-format": "Temperature: {temperatureC}°C",
+      "interval": 2,
+    },
+
+    "custom/icon": {
+      "format": "",
+      "tooltip": true,
+      "tooltip-format": "Process Monitoring",
+    },
+
+    "group/hardware": {
+      "orientation": "horizontal",
+        "drawer": {
+          "transition-duration": 650,
+          "click-to-reveal": true,
+          "transition-left-to-right": false
+      },
+      "modules": [
+        "custom/icon",
+        "network#3",
+        "network#2",
+        "network",
+        "custom/pacman",
+        "cpu",
+        "temperature",
+        "memory",
+        "disk"
+      ]
+    },
+
+    "network": {
+      "interface": "wlan0",
+      "format": "",
+      "format-wifi": "<span color='#589df6'>{frequency} GHz</span>  󰓢 {bandwidthTotalBits}  {signalStrength}%",
+      "format-default": "",
+      "format-disconnected": "",
+      "format-disabled": "",
+      "format-ethernet": "<span color='#589df6'>{frequency}</span> 󰈀 {bandwidthTotalBits}",
+      "tooltip": true,
+      "tooltip-format": "Network Status: built-in NIC",
+      "format-alt": "󰀃 {essid} <span color='#589df6'>{ipaddr}</span><span color='gray'>/{cidr}</span>",
+      "max-length": 40,
+      "interval": 2
+    },
+    "network#2": {
+      "interface": "wlanusb",
+      "format": "",
+      "format-wifi": "<span color='#589df6'>{frequency} GHz</span> 󰓢 {bandwidthTotalBits} <span font='JetBrainsMono Nerd Font'><span font-weight='bold'>{ifname}</span></span> {signalStrength}%",
+      "format-default": "",
+      "format-disconnected": "",
+      "format-disabled": "",
+      "format-ethernet": "󰈀 {bandwidthTotalBits}",
+      "tooltip": true,
+      "tooltip-format": "Network Status: USB Wi-Fi Adatper",
+      "format-alt": "󰀃 {essid} <span color='#589df6'>{ipaddr}</span><span color='gray'>/{cidr}</span>",
+      "max-length": 40,
+      "interval": 2
+    },
+    "network#3": {
+      "interface": "ethernetusb",
+      "format": "",
+      "format-wifi": "<span color='#589df6'>{frequency}</span> 󰓢 {bandwidthTotalBits} <span font='JetBrainsMono Nerd Font'><span font-weight='bold'>(wlan)</span></span>",
+      "format-default": "",
+      "format-disconnected": "",
+      "format-disabled": "",
+      "format-ethernet": "󰈀 {bandwidthTotalBits}",
+      "tooltip": true,
+      "tooltip-format": "Network Status: USB Ethernet",
+      "format-alt": "󰀃 {essid} <span color='#589df6'>{ipaddr}</span><span color='gray'>/{cidr}</span>",
+      "max-length": 40,
+      "interval": 2
+    },
+} 
