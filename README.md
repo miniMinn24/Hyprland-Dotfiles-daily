@@ -2,6 +2,10 @@
     <h1>miniMinn's Hyprland Dotfiles 🌌</h1>
 </div>
 
+![desktop_preview](Preview-Wallpapers/preview_3.webp)
+![theme_preview](Preview-Wallpapers/preview_1.webp)
+![hyprlock_preview](Preview-Wallpapers/preview_2.webp)
+
 <br>
 
 ## About My Dotfiles...
