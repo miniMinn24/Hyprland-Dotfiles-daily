@@ -1,9 +1,18 @@
 <div align="center">
     <h1>miniMinn's Hyprland Dotfiles 🌌</h1>
+
+[![Hyprland](https://img.shields.io/badge/Hyprland-abd6fd?style=for-the-badge&&logo=git&logoColor=D9E0EE&labelColor=1E202B "Hyprland - A dynamic tiling Wayland compositor based on wlroots that doesn't sacrifice on its looks")](https://hyprland.org/)
+![](https://img.shields.io/github/last-commit/miniMinn24/Hyprland-Dotfiles-daily?&style=for-the-badge&color=429ddb&logo=google-cloud&logoColor=D9E0EE&labelColor=141a29)
+![](https://img.shields.io/github/repo-size/miniMinn24/Hyprland-Dotfiles-daily?&logo=protondrive&style=for-the-badge&logoColor=D9E0EE&labelColor=1E202B&color=27638c)
 </div>
 
+## Desktop
 ![desktop_preview](Preview-Wallpapers/preview_3.webp)
+
+## Theme
 ![theme_preview](Preview-Wallpapers/preview_1.webp)
+
+## Hyprlock
 ![hyprlock_preview](Preview-Wallpapers/preview_2.webp)
 
 <br>
