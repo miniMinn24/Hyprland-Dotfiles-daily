@@ -31,6 +31,7 @@ window#waybar.empty #window {
   font-size: 9px;
 }
 
+
 #custom-pacman.updated {
   color: @good;
 }

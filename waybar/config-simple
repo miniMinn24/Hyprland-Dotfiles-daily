@@ -60,6 +60,7 @@
       "tooltip-format": "Notification Center",
       "format": "{:%a %b %d  %I:%M %p}",
       "on-click": "swaync-client -t -w",
+      "on-click-right": "sleep 0.1 && hyprctl dispatch hyprexpo:expo toggle",
       "return-type": "json",
       "exec-if": "which swaync-client",
       "exec": "swaync-client -swb",
@@ -90,8 +91,8 @@
       },
       "modules": [
         "pulseaudio#source",
-        "pulseaudio/slider",
-        "mpris",
+        "pulseaudio/slider"
+        // "mpris",
       ],
     },
 
